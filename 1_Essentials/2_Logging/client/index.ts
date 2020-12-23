@@ -4,6 +4,7 @@ var counter = document.getElementById("viewCounter");
 
 // create connection
 let connection = new signalR.HubConnectionBuilder()
+    .configureLogging(signalR.LogLevel.Trace)
     .withUrl("/hub/view")
     .build();
 
