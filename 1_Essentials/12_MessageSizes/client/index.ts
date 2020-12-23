@@ -8,7 +8,7 @@ let userJson = document.getElementById("userJson") as HTMLTextAreaElement;
 function receiveUsers(users) {
     userJson.value = JSON.stringify(users, null, 2);
 }
-function clear(){
+function clear() {
     userJson.value = "Loading...";
 }
 
@@ -18,6 +18,7 @@ btnGetOneThousand.addEventListener("click", () => { clear(); connection.invoke("
 
 // create connection
 let connection = new signalR.HubConnectionBuilder()
+    .configureLogging(signalR.LogLevel.Trace)
     .withUrl("/hub/users")
     .build();
 
