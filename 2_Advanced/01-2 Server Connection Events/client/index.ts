@@ -12,15 +12,9 @@ connection.on("viewCountUpdate", (value: number) => {
     counter.innerText = value.toString();
 });
 
-// notify server we're watching
-function notify(){
-    connection.send("notifyWatching");
-}
-
 // start the connection
 function startSuccess(){
     console.log("Connected.");
-    notify();
 }
 function startFail(){
     console.log("Connection failed.");
