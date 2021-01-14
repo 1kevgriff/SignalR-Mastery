@@ -1,6 +1,8 @@
 # SignalR Mastery
 Source code and examples for my SignalR Mastery course.
 
+Not in the course?  Join today @ https://signalrmastery.com
+
 ## Prereqs
 
 * Node.JS 12.x or higher
