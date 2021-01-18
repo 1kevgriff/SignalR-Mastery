@@ -16,12 +16,12 @@ namespace Scaffold.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // STEP 1: connection string to redis
+            //    - Get from configuration! 
             var connectionString = "";
             
-            services.AddSignalR().AddStackExchangeRedis(connectionString);
-            services.AddSignalR().AddStackExchangeRedis(configure => {
-                // configure redis options here...
-                configure.Configuration.ClientName = "SignalR Mastery";
+            // STEP 2: Add StackExchange Redis helper
+            services.AddSignalR().AddStackExchangeRedis(connectionString, configure => {
                 configure.Configuration.ChannelPrefix = "signalr";
                 configure.Configuration.DefaultDatabase = 5;
             });
@@ -41,7 +41,7 @@ namespace Scaffold.Web
             app.UseStaticFiles();
 
             app.UseEndpoints(configure => {
-                configure.MapHub<ViewHub>("/hub/view");
+                configure.MapHub<BackgroundColorHub>("/hub/background");
             });
         }
     }
