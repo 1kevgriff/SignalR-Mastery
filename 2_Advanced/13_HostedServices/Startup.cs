@@ -17,6 +17,8 @@ namespace Scaffold.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSignalR();
+
+            services.AddHostedService<TimeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
