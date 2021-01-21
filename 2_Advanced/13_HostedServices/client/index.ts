@@ -4,7 +4,7 @@ var currentTime = document.getElementById("currentTime");
 
 // create connection
 let connection = new signalR.HubConnectionBuilder()
-    .withUrl("/hub/view")
+    .withUrl("/hub/time")
     .build();
 
 // on view update message from client
