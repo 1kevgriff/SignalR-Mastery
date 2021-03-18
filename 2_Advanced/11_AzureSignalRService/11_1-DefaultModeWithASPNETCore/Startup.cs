@@ -22,7 +22,7 @@ namespace Scaffold.Web
             var connectionString = "";
             
             // STEP 2: Add Azure SignalR Server
-            services.AddSignalR().AddAzureSignalR();
+            services.AddSignalR().AddAzureSignalR(connectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
