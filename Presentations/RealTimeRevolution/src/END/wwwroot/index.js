@@ -3,7 +3,9 @@ var checkBox = document.getElementById("checkBox");
 var btnStart = document.getElementById("btnStart");
 var btnEnd = document.getElementById("btnEnd");
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/hubs/sync").build();
+var connection = new signalR.HubConnectionBuilder()
+                    .withUrl("/hubs/sync")
+                    .build();
 
 /* signalr events */
 connection.on("syncTextBox", (txt) => {
