@@ -12,7 +12,6 @@ namespace src.Hubs
         {
             await Clients.Others.SendAsync("syncTextBox", text);
         }
-
         public async Task SyncCheckbox(bool checkbox)
         {
             await Clients.Others.SendAsync("syncCheckbox", checkbox);
@@ -26,5 +25,6 @@ namespace src.Hubs
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, "notify-me");
         }
+
     }
 }
