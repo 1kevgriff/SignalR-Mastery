@@ -27,6 +27,8 @@ checkBox.addEventListener("change", (ev) => {
      connection.invoke("syncCheckBox", target.checked);
 });
 
+
+/* new user events */
 connection.on("newUser", (user) => {
     Toastify({
         text: "Welcome " + user.name.first,
