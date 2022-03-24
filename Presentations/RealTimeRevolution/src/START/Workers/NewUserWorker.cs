@@ -16,14 +16,11 @@ public class NewUserWorker : BackgroundService
 {
     private readonly IHttpClientFactory _factory;
     private ILogger _logger;
-    private readonly IHubContext<SyncHub> hubContext;
 
-    public NewUserWorker(IHttpClientFactory factory, ILogger<NewUserWorker> logger, 
-        IHubContext<SyncHub> hubContext)
+    public NewUserWorker(IHttpClientFactory factory, ILogger<NewUserWorker> logger)
     {
         this._factory = factory;
         _logger = logger;
-        this.hubContext = hubContext;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -37,8 +34,7 @@ public class NewUserWorker : BackgroundService
                 var r = await GetUser();
 
                 // todo: signalr
-                await hubContext.Clients.Group("notify-me").SendAsync("NewUser", r.Results.First());
-
+                
                 await Task.Delay(TimeSpan.FromSeconds(10));
 
             }
