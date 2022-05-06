@@ -1,0 +1,19 @@
+{
+  "name": "realtime-revolution-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@microsoft/signalr": "^6.0.0",
+    "tippy.js": "^6.3.7",
+    "toastify-js": "^1.11.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
