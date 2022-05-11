@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using src.Hubs;
 
 public class NewUserWorker : BackgroundService
 {
     private readonly IHttpClientFactory _factory;
     private ILogger _logger;
-
     public NewUserWorker(IHttpClientFactory factory, ILogger<NewUserWorker> logger)
     {
         this._factory = factory;
@@ -31,10 +29,11 @@ public class NewUserWorker : BackgroundService
 
             try
             {
+
                 var r = await GetUser();
 
-                // todo: signalr
-                
+                // TODO: SignalR
+
                 await Task.Delay(TimeSpan.FromSeconds(10));
 
             }
