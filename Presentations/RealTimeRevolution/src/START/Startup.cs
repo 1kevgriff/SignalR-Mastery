@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using src.Hubs;
 
 namespace src
 {
@@ -36,6 +35,7 @@ namespace src
 
             app.UseEndpoints(configure =>
             {
+
             });
         }
     }
