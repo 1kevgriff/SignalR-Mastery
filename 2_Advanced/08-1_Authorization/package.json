@@ -25,6 +25,6 @@
   "dependencies": {
     "@microsoft/signalr": "^6.0.0",
     "assets-webpack-plugin": "^7.1.1",
-    "copy-webpack-plugin": "^10.0.0"
+    "copy-webpack-plugin": "^11.0.0"
   }
 }
