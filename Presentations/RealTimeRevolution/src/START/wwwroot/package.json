@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@microsoft/signalr": "^6.0.0",
+    "@microsoft/signalr": "^8.0.0",
     "tippy.js": "^6.3.7",
     "toastify-js": "^1.11.2"
   },
