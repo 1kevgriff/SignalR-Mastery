@@ -135,10 +135,9 @@ services.AddSignalR(options =>
 
 ## Important Notes
 
-- All examples multi-target **net8.0** and **net10.0** (the two currently-supported LTS frameworks). `dotnet run` defaults to net10.0; pass `--framework net8.0` to run on the prior LTS.
-- Requires the .NET 8 SDK and/or the .NET 10 SDK installed.
+- All examples multi-target **net8.0** and **net10.0** (the two currently-supported LTS frameworks). Because the projects are multi-TFM, every `dotnet run` / `dotnet watch` / `dotnet publish` invocation must include `--framework net10.0` or `--framework net8.0` — plain `dotnet run` will error with `"Your project targets multiple frameworks"`.
+- Requires the **.NET 10 SDK** (which also builds the `net8.0` target). A net8-only SDK cannot evaluate a project that declares `net10.0`. `global.json` at the repo root pins the SDK to 10.x via `rollForward: latestFeature`.
 - Workshop snapshots under `Presentations/RealTimeRevolution/` remain on net6 by design — they're time-travel artifacts of the original workshop and are excluded from Renovate via `ignorePaths`.
-- `dotnet watch` and `dotnet publish` require an explicit `--framework net10.0` (or `net8.0`) on multi-targeted projects.
 - Automatic dependency updates via Renovate
 - Examples demonstrate progression from simple to complex scenarios
 - Each example is self-contained and runnable independently
@@ -149,7 +148,7 @@ services.AddSignalR(options =>
 All branches must follow the format `griffin/{jira-ticket-number}-{description}` (kebab-case description). Example: `griffin/SOS-1936-events-param-validation`. If multiple tickets ride in one branch, use the lowest/primary ticket number and reference the others in commit messages and the PR body.
 
 ### C# / .NET Workflow
-If any `.cs` file is updated in the project, offer to run the build or run the tests — odds are something broke. The standard `dotnet run` from each example directory is the smoke test; the example projects don't ship with a test suite.
+If any `.cs` file is updated in the project, offer to run the build or run the tests — odds are something broke. The standard smoke test is `dotnet run --framework net10.0` (or `net8.0`) from each example directory; the example projects don't ship with a test suite.
 
 ### Microsoft Documentation Links
 When adding links to Microsoft pages (`learn.microsoft.com`, `docs.microsoft.com`, `azure.microsoft.com`, etc.), always append the MVP tracking parameter: `?WT.mc_id=DOP-MVP-4029061`.
