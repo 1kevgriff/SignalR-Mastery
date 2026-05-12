@@ -140,6 +140,20 @@ services.AddSignalR(options =>
 - Examples demonstrate progression from simple to complex scenarios
 - Each example is self-contained and runnable independently
 
+## Development Conventions
+
+### Git Branch Naming
+All branches must follow the format `griffin/{jira-ticket-number}-{description}` (kebab-case description). Example: `griffin/SOS-1936-events-param-validation`. If multiple tickets ride in one branch, use the lowest/primary ticket number and reference the others in commit messages and the PR body.
+
+### C# / .NET Workflow
+If any `.cs` file is updated in the project, offer to run the build or run the tests — odds are something broke. The standard `dotnet run` from each example directory is the smoke test; the example projects don't ship with a test suite.
+
+### Microsoft Documentation Links
+When adding links to Microsoft pages (`learn.microsoft.com`, `docs.microsoft.com`, `azure.microsoft.com`, etc.), always append the MVP tracking parameter: `?WT.mc_id=DOP-MVP-4029061`.
+
+### RTK (Rust Token Killer)
+Prefer `rtk`-prefixed commands for token-heavy operations to reduce noise (e.g., `rtk dotnet build`, `rtk git status`, `rtk gh pr view`). RTK passes through unchanged when no dedicated filter exists, so it's always safe to prefix.
+
 ## Course Information
 - Course website: https://signalrmastery.com
 - Support: Available through course community
