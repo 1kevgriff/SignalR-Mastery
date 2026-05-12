@@ -28,8 +28,10 @@ npm run i
 # Start Webpack (watch mode)
 npm run build
 
-# Run application
-dotnet run
+# Run application (multi-target — pick a TFM)
+dotnet run --framework net10.0
+# or, to run on the prior LTS:
+dotnet run --framework net8.0
 ```
 
 ### Utilities
