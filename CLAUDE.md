@@ -135,7 +135,10 @@ services.AddSignalR(options =>
 
 ## Important Notes
 
-- All examples use .NET 6 (upgraded from .NET 5)
+- All examples multi-target **net8.0** and **net10.0** (the two currently-supported LTS frameworks). `dotnet run` defaults to net10.0; pass `--framework net8.0` to run on the prior LTS.
+- Requires the .NET 8 SDK and/or the .NET 10 SDK installed.
+- Workshop snapshots under `Presentations/RealTimeRevolution/` remain on net6 by design — they're time-travel artifacts of the original workshop and are excluded from Renovate via `ignorePaths`.
+- `dotnet watch` and `dotnet publish` require an explicit `--framework net10.0` (or `net8.0`) on multi-targeted projects.
 - Automatic dependency updates via Renovate
 - Examples demonstrate progression from simple to complex scenarios
 - Each example is self-contained and runnable independently

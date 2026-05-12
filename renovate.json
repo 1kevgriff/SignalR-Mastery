@@ -2,5 +2,32 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "ignorePaths": [
+    "Presentations/**"
+  ],
+  "packageRules": [
+    {
+      "description": "Lock the net8.0 conditional package lines at major 8.x",
+      "matchManagers": ["nuget"],
+      "matchPackagePatterns": [
+        "^Microsoft\\.AspNetCore\\.",
+        "^Microsoft\\.EntityFrameworkCore",
+        "^Microsoft\\.Extensions\\."
+      ],
+      "matchCurrentVersion": "/^8\\./",
+      "allowedVersions": "<9.0.0"
+    },
+    {
+      "description": "Lock the net10.0 conditional package lines at major 10.x",
+      "matchManagers": ["nuget"],
+      "matchPackagePatterns": [
+        "^Microsoft\\.AspNetCore\\.",
+        "^Microsoft\\.EntityFrameworkCore",
+        "^Microsoft\\.Extensions\\."
+      ],
+      "matchCurrentVersion": "/^10\\./",
+      "allowedVersions": "<11.0.0"
+    }
   ]
 }
