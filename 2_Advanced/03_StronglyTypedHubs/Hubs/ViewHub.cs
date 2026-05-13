@@ -15,7 +15,7 @@ public class ViewHub : Hub<IHubClient>
     }
 }
 
-public interface IHubClient 
+public interface IHubClient
 {
-    Task NewViewCount(int viewCount);
+    Task ViewCountUpdate(int viewCount);
 }
